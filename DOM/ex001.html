@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <title>Exercício 01</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.753);
+        }
+        .container {
+            border: 1px solid black;
+            width: 220px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+        }
+        button{
+            background-color: rgb(10, 125, 219);
+            padding: 5px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid transparent;
+        }
+        button:hover{
+            background-color: rgb(12, 136, 236);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 id="msg">Olá, mundo!</h1>
+
+        <button type="button" onclick="mudarMsg()">Traduzir</button>
+
+    </div>
+
+    <script>
+
+        function mudarMsg() {
+            if (mensagem.innerText === 'Olá, mundo!'){
+                mensagem.innerText = 'Hello, World!'
+            }else{
+                mensagem.innerText = 'Olá, mundo!'
+            }
+        }
+
+        const mensagem = document.getElementById('msg')
+
+
+    </script>
+
+</body>
+
+</html>

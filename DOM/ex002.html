@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <title>Box Interativo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header{
+            background-color: #FFB100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+        main{
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+        }
+        footer{
+            background-color: #FFB100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <h1>Box Interativo</h1>
+    </header>
+
+    <main>
+        <div class="box" id="box">
+            BOX
+        </div>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por <strong>Gustavo Ramos</strong>.</p>
+    </footer>
+
+    <script>
+        let box = document.getElementById('box')
+
+        box.addEventListener('mouseenter', entrou)
+        box.addEventListener('click', clicou)
+        box.addEventListener('mouseout', saiu)
+
+        function entrou(){
+            box.style.background = 'red'
+            box.innerHTML = 'ENTROU...'
+        }
+        function clicou(){
+            box.style.background = 'blue'
+            box.innerHTML = 'CLICOU...'
+        }
+        function saiu(){
+            box.style.background = 'black'
+            box.innerHTML = 'SAIU...'
+        }
+    </script>
+</body>
+
+</html>

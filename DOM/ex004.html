@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header{
+            background-color: #FFB100;
+            text-align: center;
+        }
+        main{
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        form{
+            background-color: black;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 250px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .btnEntrar{
+            padding: 3px;
+            background-color: gray;
+            border: 1px solid black;
+            color: white;
+            border-radius: 7px;
+        }
+        footer{
+            background-color: #FFB100;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <h1>Mostrar / esconder senha</h1>
+    </header>
+    <main>
+        <form>
+            
+            <div>
+                <input type="password" id="senha" placeholder="Digite sua senha">
+            
+                <button type="button" id="btnMostrar" class="btnMostrar" onclick="monstrarSenha()">Mostrar</button>
+            </div>
+            
+            <div>
+                <input type="submit" value="ENTRAR" id="btnEntrar" class="btnEntrar">
+            </div>
+            
+        </form>
+    </main>
+    <footer>
+        <p>Desenvolvido por <strong>Gustavo Ramos</strong>.</p>
+    </footer>
+    <script defer>
+        let password = document.getElementById('senha')
+        let btnMostrar = document.getElementById('btnMostrar')
+
+        function monstrarSenha(){
+            if(password.type === 'password'){
+                password.type = 'text'
+                password.innerText = password.value
+                btnMostrar.innerText = 'Ocultar'
+            }else{
+                password.type = 'password'
+                btnMostrar.innerText = 'Mostrar'
+            }
+        }
+    </script>
+</body>
+
+</html>
