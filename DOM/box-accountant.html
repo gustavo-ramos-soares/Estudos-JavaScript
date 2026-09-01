@@ -31,7 +31,7 @@
         }
         .container{
             width: 350px;
-            height: 250px;
+            height: 300px;
             background-color: rgba(0, 0, 0, 0.801);
             color: white;
             display: flex;
@@ -46,6 +46,7 @@
             padding: 10px;
             width: 50px;
             text-align: center;
+            font-size: 2rem;
         }
 
         .btn{
@@ -55,6 +56,7 @@
             padding: 2px;
             width: 3rem;
             font-weight: bold;
+            font-size: 1.5rem;
             background-color: #FFB100;
             color: black;
         }
@@ -64,6 +66,7 @@
             color: #FFB100;
             border: 1px solid black;
             border-radius: 7px;
+            font-size: 1.2rem;
         }
         .btnReset:hover{
             background-color: #FFB100;
@@ -83,20 +86,20 @@
 
         <div class="container">
 
-            <div class="number" id="number">
-                <h1>0</h1>
+            <div class="number" id="nbr">
+                <h1 id="number">0</h1>
             </div>
 
             <div class="btn">
                 
-                <button class="btnContador">-</button>
+                <button class="btnContador" id="btnMenor" onclick="contadorMenor()">-</button>
 
-                <button class="btnContador">+</button>
+                <button class="btnContador" id="btnMaior" onclick="contadorMaior()">+</button>
 
             </div>
 
             <div >
-                <button class="btnReset">Limpar</button>
+                <button class="btnReset" id="btnReset" onclick="limparContador()">Limpar</button>
             </div>
 
         </div>
@@ -108,7 +111,29 @@
     </footer>
 
     <script defer>
+        let number = document.getElementById('number')
+        let btnMenor = document.getElementById('btnMenor')
+        let btnMaior = document.getElementById('btnMaior')
+        let btnReset = document.getElementById('btnReset')
 
+        let n = 0
+
+        function contadorMaior(){
+            n++
+            number.innerHTML = n
+        }
+
+        function contadorMenor(){
+            if (n > 0){
+            n--
+            number.innerHTML = n
+            }
+        }
+
+        function limparContador(){
+            n = 0
+            number.innerHTML = n
+        }
     </script>
 </body>
 

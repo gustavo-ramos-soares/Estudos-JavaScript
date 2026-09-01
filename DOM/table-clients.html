@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <title>Tabela de Clientes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            background-color: #ffb300;
+            text-align: center;
+            height: 50px;
+            font-variant: small-caps;
+        }
+        main{
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 45px;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 10px;
+            
+            min-width: 700px;
+            height: auto;
+        }
+        .btnNewUser{
+            padding: 7px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color:rgb(18, 148, 255);
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+       .btnNewUser:hover{
+            background-color:rgb(69, 171, 255);
+        }
+        th{
+            background-color: #ffb300;
+            font-size: 1.2rem;
+            height: 40px;
+            text-align: start;
+            padding: 10px;
+        }
+        td{
+            font-size: 1rem;
+            height: 40px;
+            padding: 10px;
+            text-align: start;
+        }
+        th, td{
+            border-bottom: 1px solid #ddd;
+        }
+        .modal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content{
+            background-color: white;
+            border-radius: 10px;
+            width: 500px;
+            height: auto;
+        }
+        
+        .modal-content header{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 1.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .inptsForm{
+            padding: 5px;
+            font-size: 0.90rem;
+        }
+        .btnsFormulario{
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 5px;
+            padding: 7px;
+        }
+        .btnForm{
+            padding: 7px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 7px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        .btn-green{
+            background-color: green;
+        }
+        .btn-green:hover{
+            background-color: rgb(6, 168, 6);
+            cursor: pointer;
+        }
+        .btn-red{
+            background-color: rgb(225, 0, 0);
+        }
+        .btn-red:hover{
+            background-color: rgb(255, 38, 38);
+        }
+        footer{
+            background-color: #ffb300;
+            text-align: center;
+            padding: 5px;
+            font-variant: small-caps;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <h1>Cadastro de Clientes</h1>
+    </header>
+
+    <main>  
+        <div class="container">
+
+            <div class="btn">
+                <button class="btnNewUser" id="btnNewUser">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Novo Usuário
+                </button>
+            </div>
+
+            <table>
+                
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Departamento</th>
+                        <th>Telefone</th>
+                        <th>Ramal</th>
+                        <th>Unidade</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td>Gustavo</td>
+                        <td>gsoares@shuttle.com.br</td>
+                        <td>TI</td>
+                        <td>11997527612</td>
+                        <td>2274</td>
+                        <td>Jandira</td>
+                    </tr>
+                    <tr>
+                        <td>Maria</td>
+                        <td>mgeocking@viavarejo.com.br</td>
+                        <td>ADM</td>
+                        <td>11998272900</td>
+                        <td>2294</td>
+                        <td>Jandira</td>
+                    </tr>
+                    <tr>
+                        <td>Daniela</td>
+                        <td>dsolidade@corret.com.br</td>
+                        <td>Marketing</td>
+                        <td>11998272911</td>
+                        <td>2262</td>
+                        <td>Barueri</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="modal" id="modal">
+
+            <div class="modal-content">
+
+                <header>
+                    Novo Usuário:
+                </header>
+
+                <form>
+                    <input type="text" placeholder="Nome:" class="inptsForm">
+                    <input type="email" placeholder="E-mail:" class="inptsForm">
+                    <input type="text" placeholder="Departamento:" class="inptsForm">
+                    <input type="tel" placeholder="Telefone:" class="inptsForm">
+                    <input type="tel" placeholder="Ramal:" class="inptsForm">
+                    <input type="text" placeholder="Unidade:" class="inptsForm">
+
+                    <div class="btnsFormulario">
+                        <button type="button" class="btnForm btn-red" id="btnCancelar">Cancelar</button>
+                        <button type="submit" class="btnForm btn-green" id="btnSalvar">Salvar</button>
+                    </div>
+                </form>
+
+            </div>
+                
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Desenvolvido por <strong>Gustavo Ramos</strong>.</p>
+    </footer>
+
+    <script defer>
+        
+        const btnNewUser = document.getElementById('btnNewUser')
+        const modal = document.getElementById('modal')
+        const btnCancelar = document.getElementById('btnCancelar')
+        const form = document.querySelector('form')
+
+        btnNewUser.addEventListener('click',abrirModal)
+        btnCancelar.addEventListener('click', fecharModal)
+
+        form.addEventListener('submit', function(event){
+        event.preventDefault()
+        })
+
+        function abrirModal(){
+            modal.style.display = 'flex'
+        }
+        function fecharModal(){
+            modal.style.display = 'none'
+        }
+               
+    </script>
+</body>
+
+</html>
