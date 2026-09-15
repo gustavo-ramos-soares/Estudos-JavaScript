@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <title>Verificador de Idade</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: steelblue;
+        }
+
+        header {
+            color: whitesmoke;
+            text-align: center;
+        }
+
+        div {
+            background-color: white;
+            width: 500px;
+            margin: auto;
+            padding: 8px;
+        }
+
+        #btn {
+            padding: 3px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+        footer {
+            color: whitesmoke;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+
+    <section>
+
+        <div>
+            <p>Ano de Nascimento:
+                <input type="number" name="txtano" id="txtano" min="0">
+            </p>
+
+            <p>Sexo:
+
+                <input type="radio" name="radsex" id="mas" checked>
+                <label for="mas">Masculino</label>
+
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem">Feminino</label>
+            </p>
+
+            <p>
+                <input type="button" value="Verificar" id="btn" onclick="verificar()">
+            </p>
+        </div>
+
+        <div id="res">
+            Preencha os dados acima para ver o resultado!
+        </div>
+
+    </section>
+
+    <footer>
+        <p> &copy; Desenvolvido por <strong>Gustavo Ramos</strong> </p>
+    </footer>
+
+    <script defer>
+
+        function verificar() {
+
+            const date = new Date()
+            const ano = date.getFullYear()
+            const anoNasc = document.getElementById('txtano').value
+            const mas = document.getElementById('mas')
+            const fem = document.getElementById('fem')
+            const res = document.getElementById('res')
+
+
+            if (anoNasc.length == 0 || anoNasc > ano) {
+                alert('teste')
+            } else {
+                const fsex = document.getElementsByName('radsex')
+                const idade = ano - anoNasc
+                let genero = ''
+                let img = document.createElement('img')
+                img.setAttribute('id', 'imgPessoa')
+
+                if (fsex[0].checked) {
+
+                    genero = 'homem'
+                    if (idade >= 0 && idade < 10) {
+                        img.setAttribute('src', './assets/bebeMasc.jpg')
+                    } else if (idade < 21) {
+                        img.setAttribute('src', './assets/bebe')
+                    } else if (idade < 50) {
+                        img.setAttribute('src', './assets/bebe')
+                    } else {
+                        img.setAttribute('src', './assets/bebe')
+                    }
+
+
+                } else if (fsex[1].checked) {
+
+                    genero = 'mulher'
+
+                    if (idade >= 0 && idade < 10) {
+                        img.setAttribute('src', './assets/bebe')
+                    } else if (idade < 21) {
+                        img.setAttribute('src', './assets/bebe')
+                    } else if (idade < 50) {
+                        img.setAttribute('src', './assets/bebe')
+                    } else {
+                        img.setAttribute('src', './assets/bebe')
+                    }
+
+                }
+                res.style.textAlign = 'center'
+                res.style.display = 'flex'
+                res.style.flexDirection = 'column'
+                res.style.alignItems = 'center'
+                res.style.justifyContent = 'center'
+                res.style.gap = '10px'
+                res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
+                res.appendChild(img)
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

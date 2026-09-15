@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <title>Hora do Dia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: steelblue;
+        }
+        header{
+            color: whitesmoke;
+            text-align: center;
+        }
+        section{
+            
+        }
+        div{
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            padding: 8px;
+            text-align: center;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+        footer{
+            color: whitesmoke;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body onload="carregar()">
+    
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+
+    <section>
+
+        <div id="msg">Mensagem</div>
+
+        <div>
+            <img src="./assets/manha.jpg" alt="Foto do Dia" id="img">
+        </div>
+
+    </section>
+
+    <footer>
+        <p>Desenvolvido por <strong>Gustavo Ramos</strong> </p>
+    </footer>
+
+    <script defer>
+        
+        function carregar () {
+
+            const msg = document.getElementById('msg')
+            const img = document.getElementById('img')
+            const date = new Date ()
+            const hora = date.getHours()
+
+            msg.innerHTML = `Agora são ${hora} horas.`
+            msg.style.fontWeight = 'bold'
+
+            if ( hora > 0 && hora < 12) {
+                img.src = './assets/manha.jpg'
+                document.body.style.background = '#D88715'
+            }else if ( hora >= 12 && hora < 18) {
+                img.src = './assets/tarde.jpg'
+                document.body.style.background = '#3B2B21'
+            }else {
+                img.src = './assets/noite.jpg'
+                document.body.style.background = '#1E1C1B'
+            }
+        }
+    </script>
+
+</body>
+
+</html>
