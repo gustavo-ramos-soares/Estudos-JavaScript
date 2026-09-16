@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <title>Super contador</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #0A4363;
+        }
+
+        header {
+            color: whitesmoke;
+            text-align: center;
+        }
+
+        div {
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            padding: 8px;
+        }
+
+        footer {
+            color: whitesmoke;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+
+    <section>
+
+        <div>
+
+            <p>
+                <label for="nInicio">Início:</label>
+                <input type="number" name="nInicio" id="nInicio">
+            </p>
+
+
+            <p>
+                <label for="nFim">Fim:</label>
+                <input type="number" name="nFim" id="nFim">
+            </p>
+
+
+            <p>
+                <label for="nPassos">Passo:</label>
+                <input type="number" name="nPassos" id="nPassos">
+            </p>
+
+
+            <p>
+                <input type="button" value="Contar" onclick="contar()">
+            </p>
+
+        </div>
+
+
+        <div id="msgContador">
+            
+        </div>
+
+    </section>
+
+    <footer>
+        <p>Desenvolvido por <strong>Gustavo Ramos</strong> </p>
+    </footer>
+
+    <script defer>
+
+        function contar() {
+
+            let nInicio = document.getElementById('nInicio').value
+            let nFim = document.getElementById('nFim').value
+            let nPassos = document.getElementById('nPassos').value
+            let msg = document.getElementById('msgContador')
+
+            if (nInicio.length == 0 || nFim.length == 0 || nPassos.length == 0) {
+                alert('[ERRO] Faltam dados!')
+            } else {
+                
+                msg.innerHTML = 'Contando: <br>'
+
+                nInicio = Number(nInicio)
+                nFim = Number(nFim)
+                nPassos = Number(nPassos)
+
+                if (nPassos <= 0){
+                    alert('Passo inválido! Considerando PASSO 1')
+                    nPassos = 1   
+                }
+
+                if (nInicio < nFim) {
+                    //contagem progressiva
+                    for (nInicio; nInicio <= nFim; nInicio += nPassos) {
+                        msg.innerHTML += ` ${nInicio} \u{1F449} `
+                    }
+                } else {
+                    //contagem regressiva
+                    for (let c = nInicio; nInicio >= nFim; nInicio -= nPassos) {
+                        msg.innerHTML += ` ${nInicio} \u{1F449} `
+                    }
+                    
+                }
+                msg.innerHTML += `\u{1F3C1}`
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
