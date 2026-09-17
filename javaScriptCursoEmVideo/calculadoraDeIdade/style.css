@@ -8,7 +8,7 @@ body {
 
 header {
     text-align: center;
-    font-size: 0.70rem;
+    font-size: 1rem;
     color: white;
 }
 
@@ -21,13 +21,16 @@ section {
 }
 
 label {
-    font-size: 0.85rem;
+    font-size: 1rem;
     display: inline-block;
     margin-bottom: 8px;
 }
 
 input {
     width: 200px;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
 }
 
 .btnCalcular {
@@ -36,7 +39,7 @@ input {
     color: white;
     outline: none;
     border: none;
-    padding: 3px;
+    padding: 8px;
     border-radius: 3px;
 }
 
@@ -47,6 +50,7 @@ input {
 a {
     text-decoration: none;
     color: white;
+    font-weight: bold;
 }
 
 a:hover {
